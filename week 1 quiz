@@ -1,0 +1,47 @@
+Week 1 Quiz
+
+Due date for this assignment: 2017-02-03, 23:59 IST.
+1. What is the type of the function f defined by:
+f m n p = div m n >= p
+Note: Use only concepts discussed in the lectures so far. Do not use redundant brackets.
+
+Int -> Int -> Int -> Bool
+
+2. What is the type of the function g defined by:
+g a b x = (mod a x > 0) && b
+Note: Use only concepts discussed in the lectures so far. Do not use redundant brackets.
+
+Int -> Bool -> Int -> Bool
+
+3. Consider the function myOr defined as follows:
+myOr :: Bool -> Bool -> Bool
+myOr b1 b2 = False
+myOr True b2 = True
+myOr b1 True = True
+What is the value of myOr True True?
+
+False
+
+4. What is the value of f 572 for the following definition of f?
+f :: Int -> Int
+f n = g n (n+1)
+
+g :: Int -> Int -> Int
+g m i
+  | (mod i m) == 0 = i
+  | otherwise = g m (i+1)
+
+1144
+
+5. What is the type of h in the definition below?
+h m 0 = m
+h m n = h (div m 10) (10*n + (mod m 10))
+
+Int -> Int -> Int
+
+6. What is the value of h 13267 0, where the definition of h is given below?
+h m 0 = m
+h m n = h (div m 10) (10*n + (mod m 10))
+
+13267
+ 
