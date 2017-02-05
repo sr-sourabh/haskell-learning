@@ -1,0 +1,73 @@
+Week 2 Quiz
+
+Due date for this assignment: 2017-02-06, 23:59 IST.
+
+1. Consider the following functions f and g:
+f xs = g (0,xs)
+
+g (m,[]) = m
+g (m,x:xs) = g (m+1,xs)
+What is the value of f [1,3..100]?
+
+50
+
+
+
+2. Consider the following functions f and g:
+f xs = g (0,xs)
+
+g (m,[]) = m
+g (m,x:xs) = g (m+1,xs)
+What is the value of f [12,8..(-9)]?
+
+6
+
+
+
+3. Consider the function h defined as follows:
+h [] = []
+h [x] = []
+h (x:y:ys) = (x <= y): (h (y:ys))
+What is the output type for h?
+
+[Bool]
+
+
+
+4. Consider the function h defined as follows:
+h [] = []
+h [x] = []
+h (x:y:ys) = (x <= y): (h (y:ys))
+If the length of xs is 100 what is the length of h xs?
+
+99
+
+5. Consider the function h defined as follows:
+h [] = []
+h [x] = []
+h (x:y:ys) = (x <= y): (h (y:ys))
+What is the value of h [1..5]?
+
+[True,True,True,True]
+
+
+6. Consider the function h defined as follows:
+h [] = []
+h [x] = []
+h (x:y:ys) = (x <= y): (h (y:ys))
+What is the value of h [1,2,1,2,1]?
+
+[True,False,True,False]
+
+
+7. Given that the expression []:xs is well typed, which of the following is not a possible type assignment for xs?
+ xs :: [Int]
+
+
+8. Given that the following function definition is well typed, which of the following is a possible pattern that can replace the placeholder ***?
+   g ys [] = ys
+   g ys *** = m:ys
+   g ys (z:zs) = g (ys ++ [z]) zs
+
+ [m]
+
