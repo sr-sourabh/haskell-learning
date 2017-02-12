@@ -1,0 +1,93 @@
+Week 3 Quiz
+
+Due date for this assignment: 2017-02-13, 23:59 IST.
+
+1. Consider the following four function calls in Haskell
+take 4 (filter (<4) [0..100])
+take 5 (filter (<4) [0..100])
+take 4 (filter (<4) [0..])
+take 5 (filter (<4) [0..])
+
+
+  The first three yield [0,1,2,3], the last one stops at [0,1,2,3
+
+
+
+
+2. What is the type of the function f defined as follows:
+
+f x y = y:x
+
+  f :: [a] -> a -> [a]
+
+
+
+
+3. What is the value of take 5 (foldl f [] [1..100]), where f
+is defined as follows:
+
+f x y = y:x
+
+[100,99,98,97,96]
+
+
+
+
+4. What is the length of foldr g [] [1..100], where g is defined
+as follows:
+
+g x y = x:x:y
+
+
+200
+
+
+
+
+5. What is the position of (2,2) in [(i,k-i) | k <- [0..], i <- [0..k]]?
+
+Remember that list positions start with 0.
+
+
+12
+
+
+
+
+6. What is the position of (2,2) in [(i,k-i) | k <- [0..], i <- [0..], i <= k]?
+
+  Undefined
+
+
+
+
+7. Consider the definition
+
+repeat f 0 x = x
+repeat f n x = f (repeat f (n-1) x)
+
+What is the most general type for the argument f?
+
+
+ a->a
+
+
+
+
+
+8. The built-in function concat removes one level of brackets in
+a list.  Suppose we try to write a function flatten that iterates
+concat till no brackets remain.  So:
+
+flatten [1,2,3] = [1,2,3]
+
+flatten [[1,2],[2,3],[3,4]] = concat [[1,2],[2,3],[3,4]] = [1,2,2,3,3,4]
+
+flatten [[[1,2],[2,3]],[[2,3],[3,4]]] = concat (concat  [[[1,2],[2,3]],[[2,3],[3,4]]]) = [1,2,2,3,2,3,3,4]
+
+etc.
+
+
+
+ We cannot write flatten because we cannot assign it a type
+
