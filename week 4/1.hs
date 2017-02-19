@@ -1,3 +1,5 @@
+import Data.List
+
 repl [] = []
 repl (x:xs) = x:x:repl (xs)
 
@@ -20,8 +22,19 @@ remChamp [x] = []
 remChamp (y:ys) 
 	| (lar y ys) == y = ys
 	| otherwise = y:remChamp ys
+
+
+slar [x] = x	
+slar l = (sort l)!!(length l -2)
+
+remRunnerUp [] = []
+remRunnerUp [x] = [x]
+remRunnerUp (y:ys) 
+	| (slar (y:ys)) == y = ys
+	| otherwise = y:remRunnerUp ys
+
+
 	
-slar x [] = x
-slar x (y:ys) 
-	| x>y = slar x ys
-	| otherwise = slar y ys 
+
+
+
