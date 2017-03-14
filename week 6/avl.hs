@@ -29,3 +29,72 @@ rotateleft (Node tl x h (Node trl y hr trr)) = Node (Node tl x nhl trl) y nh trr
 		nh = 1 + max (height trr) nhl
 		
 -- now let us think about most crucial function in all of avl :p how to rebalance?????
+
+
+rebalance (Node tl x h tr) 
+	| abs (st) < 2 = Node tl x h tr   -- no rebalance needed and tree is balanced (st is slope of the tree c below)
+	
+	
+	| st == 2 && stl /= -1 = rotateright (Node tl x h tr)   --normal case 1 rotation needed
+	| st == 2 && stl == -1 = rotateright (Node (rotateleft tl ) x h tr) -- 2 rotation are needed as the tree is unbalanced side by side
+	
+	{-
+		x
+	       / \
+	      y   z
+	      	 / \
+	      	a   b
+	      	 \
+	      	  c
+	
+	-}
+	| st == -2 && str /= 1 = rotateleft (Node tl x h tr)   -- normal case 1 rotation needed
+	| st == -2 && str == 1 = rotatelrft (Node tl x h (rotateright tr))  -- 2 rotation are needed as the tree is unbalanced side by side
+	
+	
+	where 
+		st = slope (Node tl x h tr)
+		stl = slope tl
+		str = slope tr
+		
+		
+-- search function is cakewalk 
+search Nil v  = False
+search (Node tl x h tr) v
+	| x == v = True
+	| v < x = search tl v 
+	| otherwise = search tr v
+	
+	
+-- now lets finish insert 
+
+insert Nil v = Node Nil v 1 Nil
+insert (Node tl x h tr) v 
+	| x == v = Node tl x h tr --no duplicates plz
+	| v < x = rebalance (Node ntl x nhl tr) 
+	| otherwise = rebalance (Node tl x nhr ntr)
+	
+	where
+		ntl = insert tl
+		ntr = insert tr
+		nhl = 1 + max (height ntl) (height tr)
+		nhr = 1 + max (height ntr) (height tl)
+		
+		
+--delete is remaining
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
