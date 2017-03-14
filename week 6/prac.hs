@@ -34,7 +34,7 @@ insert (Node l x r) v
 	| x > v = Node (insert l v) x r
 	| otherwise = Node l x (insert r v)
 	
-	
+-- not complete	
 delete Nil v = Node Nil v Nil
 delete (Node l x r) v 
 	| x == v = Node l x r
