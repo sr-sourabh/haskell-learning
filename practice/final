@@ -1,0 +1,54 @@
+let badinput = [-1]
+
+
+
+
+let badinput=[1,2,2,0]
+
+
+
+
+ | (y >= x) && (x <= z) = x
+ | (x >= z) && (z <= x) = z
+ 
+ 
+ 
+ 
+ 
+ palindrome w = w == reverse w
+ 
+ 
+ 
+ 
+ 
+ 
+ndigits n b = fromIntegral (length (baserep n b))
+  where
+  baserep :: Integer -> Integer -> [Integer]
+  baserep 0 b = []
+  baserep n b = (baserep (div n b) b) ++ [(mod n b)]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+leaflist Nil = []
+leaflist (Node tl x tr) 
+	| ( (show tl) == "Nil") && (( show tr) == "Nil") = x:leaflist Nil
+    | show tl == "Nil" = (leaflist tr)
+    | show tr == "Nil" = (leaflist tl)
+    | otherwise = (leaflist tl)++(leaflist tr)
+    
+    
+    
+    
+    
+ 
+    
+    
+    
+    
+

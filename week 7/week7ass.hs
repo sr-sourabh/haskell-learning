@@ -137,12 +137,38 @@ infListElem n = (sort f)!!n
 	abundant 2 = "aabab"
 	abundant 5 = "ababb"
 	abundant 10 = "aababa"
+	
+	
+	abn = ["abab","aabab","abaab","ababa","ababb","abbab","babab","aaabab","aabaab","aababa"]
+
+abundant n = abn!!n
 -}
 
 
+ 
 
+combos :: [Char] -> Int -> [String]
+combos chars 1 = map (:[]) chars
+combos chars n = concatMap (\front -> map (front ++) (combos chars 1)) $ combos chars (n - 1)
 
-abundant n = n
+allCombos :: [String]
+allCombos = concatMap (combos ['a','b']) [1,2..]
+
+abstr :: [String]
+abstr = [x|x<-allCombos,(countab x) >1]
+
+countab :: String->Int
+countab []=0
+countab [x]=0
+countab (y:ys)
+  |y=='a' && head ys=='b' = countab (tail ys) +1
+  |otherwise = countab ys
+
+abundant :: Int -> String
+abundant n = abstr!!(n-1)
+
+priorTo::String->String->Bool
+priorTo s1 s2 = (length s1 < length s2) || ((length s1 == length s2) && (s1 < s2))
 
 
 
